@@ -1,0 +1,22 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "jsx": "react-jsx",
+    "noFallthroughCasesInSwitch": true,
+    "module": "commonjs",
+    "target": "es2021",
+    "isolatedModules": false,
+    "noEmit": true,
+    "noImplicitAny": false
+  },
+  "include": ["src"]
+}
