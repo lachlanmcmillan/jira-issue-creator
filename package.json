@@ -5,7 +5,7 @@
     "build": "tsc",
     "dev": "ts-node src/index.ts",
     "format": "rome format --write src/",
-    "lint": "echo \"no linter configured\"",
+    "lint": "rome check src/",
     "start": "node build/index.js",
     "static-check": "tsc --no-compile"
   },

@@ -6,5 +6,13 @@
     "indentSize": 2,
     "lineWidth": 80,
     "ignore": []
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "suspicious": {
+        "noExplicitAny": "off"
+      }
+    }
   }
 }
