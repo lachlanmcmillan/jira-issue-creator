@@ -1,6 +1,9 @@
 {
   "name": "jira-issue-creator",
   "module": "index.js",
+  "bin": {
+    "jira-issue-creator": "build/index.js"
+  },
   "scripts": {
     "build": "tsc",
     "dev": "ts-node src/index.ts",
