@@ -17,8 +17,9 @@ import { clearCache, initCache } from "./filesystem";
  *   jira-issue-creator --clear_cache
  */
 interface IProgramArgs {
-  clear_cache?: boolean; // [optional]
-  clearCache?: boolean; // [optional]
+  clear_cache?: boolean;
+  print_config?: boolean;
+  clearCache?: boolean;
 }
 
 const main = async (): Promise<void> => {
@@ -34,21 +35,31 @@ const main = async (): Promise<void> => {
 
   let hasConfig: boolean = readConfigFromFS();
 
-  let availableProjects;
-  while (!hasConfig) {
-    const newConfig = await promptJiraDetails();
-    setConfig(newConfig);
+  if (args.print_config) {
+    console.log(config);
+    return;
+  }
 
-    process.stdout.write("\ntesting credentials... ");
-    try {
-      availableProjects = await getProjects();
-      process.stdout.write("PASSED\n");
-      writeConfigToFS();
-      break;
-    } catch (e) {
-      // continue
-      process.stdout.write("FAILED\n\n");
+  let availableProjects;
+
+    while (!hasConfig) {
+      const newConfig = await promptJiraDetails();
+      setConfig(newConfig);
+
+      process.stdout.write("\ntesting credentials... ");
+      try {
+        availableProjects = await getProjects();
+        process.stdout.write("PASSED\n");
+        writeConfigToFS();
+        break;
+      } catch (e) {
+        // continue
+        process.stdout.write("FAILED\n\n");
+      }
     }
+
+  if (!availableProjects) {
+    availableProjects = await getProjects();
   }
 
   const project = await promptChooseProject(availableProjects);
