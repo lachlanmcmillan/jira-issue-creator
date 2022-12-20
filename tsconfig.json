@@ -9,14 +9,14 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
-    "resolveJsonModule": true,
     "jsx": "react-jsx",
     "noFallthroughCasesInSwitch": true,
-    "module": "commonjs",
+    "module": "CommonJS",
     "target": "es2021",
     "isolatedModules": false,
-    "noEmit": true,
-    "noImplicitAny": false
+    "noEmit": false,
+    "noImplicitAny": false,
+    "outDir": "build"
   },
   "include": ["src"]
 }
