@@ -4,7 +4,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "ts-node src/index.ts",
-    "format": "echo \"no formatter configured\"",
+    "format": "rome format --write src/",
     "lint": "echo \"no linter configured\"",
     "start": "node build/index.js",
     "static-check": "tsc --no-compile"
